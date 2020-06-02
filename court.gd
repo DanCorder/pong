@@ -1,5 +1,6 @@
 extends Node2D
 
+const winningScore = 7
 const ballSpeed = 200
 const ballScene = preload("res://ball.tscn")
 const paddleScene = preload("res://paddle.tscn")
@@ -35,14 +36,22 @@ func serve_ball():
 	_ball = ball
 
 
-func _on_leftWall_side_wall_hit():
+func new_point():
 	_ball.queue_free()
-	_rightScore += 1
 	$rightScoreLabel.text = String(_rightScore)
+	$leftScoreLabel.text = String(_leftScore)
+	
+	if (_leftScore >= winningScore || _rightScore >= winningScore):
+		get_tree().change_scene('res://winScreen.tscn')
+
 	serve_ball()
 
+
+func _on_leftWall_side_wall_hit():
+	_rightScore += 1
+	new_point()
+	
+
 func _on_rightWall_side_wall_hit():
-	_ball.queue_free()
 	_leftScore += 1
-	$leftScoreLabel.text = String(_leftScore)
-	serve_ball()
+	new_point()
