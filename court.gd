@@ -26,9 +26,11 @@ func new_point():
 		get_tree().change_scene('res://winScreen.tscn')
 	
 	var ball = ballScene.instance()
-	var vx = rand_range(-1, 1)
-	var vy = rand_range(-0.3, 0.3)
-	var initalVelocity = Vector2(vx, vy).normalized() * ballSpeed
+	var vx = rand_range(1, 2)
+	var vy = rand_range(0, 0.5)
+	var direction = rand_range(-1, 1)
+	var initalVelocity = Vector2(vx, vy) * direction
+	initalVelocity = initalVelocity.normalized() * ballSpeed
 	ball.init(initalVelocity)
 	ball.position = Vector2(512, 300)
 	add_child(ball)
