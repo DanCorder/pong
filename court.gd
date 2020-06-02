@@ -1,13 +1,15 @@
 extends Node2D
 
-var leftScore = 0
-var rightScore = 0
-var ballSpeed = 200
+const ballSpeed = 200
+const ballScene = preload("res://ball.tscn")
+const paddleScene = preload("res://paddle.tscn")
+
+var _leftScore = 0
+var _rightScore = 0
+var _ball
 
 func _ready():
 	randomize()
-	
-	var paddleScene = preload("res://paddle.tscn")
 	
 	var leftPaddle = paddleScene.instance()
 	leftPaddle.init('ui_leftup', 'ui_leftdown')
@@ -18,19 +20,29 @@ func _ready():
 	rightPaddle.init('ui_rightup', 'ui_rightdown')
 	rightPaddle.position = Vector2(944, 310)
 	add_child(rightPaddle)
+	
+	serve_ball()
 
-	var ball = preload("res://ball.tscn").instance()
+
+func serve_ball():
+	var ball = ballScene.instance()
 	var vx = rand_range(-1, 1)
 	var vy = rand_range(-0.3, 0.3)
 	var initalVelocity = Vector2(vx, vy).normalized() * ballSpeed
 	ball.init(initalVelocity)
 	ball.position = Vector2(512, 300)
 	add_child(ball)
+	_ball = ball
+
 
 func _on_leftWall_side_wall_hit():
-	rightScore += 1
-	$rightScoreLabel.text = String(rightScore)
+	_ball.queue_free()
+	_rightScore += 1
+	$rightScoreLabel.text = String(_rightScore)
+	serve_ball()
 
 func _on_rightWall_side_wall_hit():
-	leftScore += 1
-	$leftScoreLabel.text = String(leftScore)
+	_ball.queue_free()
+	_leftScore += 1
+	$leftScoreLabel.text = String(_leftScore)
+	serve_ball()
