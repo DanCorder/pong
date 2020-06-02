@@ -1,18 +1,37 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://title.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/EdgeOfTheGalaxyRegular_80.tres" type="DynamicFont" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="."]
+[node name="title" type="Label" parent="."]
+margin_top = 200.0
 margin_right = 1024.0
-margin_bottom = 600.0
+margin_bottom = 400.0
+custom_fonts/font = ExtResource( 2 )
 text = "P O N G"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="instructions" type="Label" parent="."]
+margin_top = 400.0
+margin_right = 1024.0
+margin_bottom = 600.0
+text = "Press Enter to begin
+First to 7 points wins
+Use 'w' and 's' for left player
+Use up and down arrows for right player"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
