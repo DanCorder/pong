@@ -22,6 +22,7 @@ func new_point():
 	$leftScoreLabel.text = String(_leftScore)
 	
 	if (_leftScore >= winningScore || _rightScore >= winningScore):
+		Global.winner = 'Left' if _leftScore >= winningScore else 'Right'
 		get_tree().change_scene('res://winScreen.tscn')
 	
 	var ball = ballScene.instance()
