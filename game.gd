@@ -1,6 +1,8 @@
 extends Node2D
 
 var ballSpeed = 200
+var leftScore = 0
+var rightScore = 0
 
 func _ready():
 	randomize()
