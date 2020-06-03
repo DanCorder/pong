@@ -8,5 +8,5 @@ func init(initialVelocity):
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
-		velocity = velocity * 1.01
+		velocity = velocity * 1.03
 		velocity = velocity.bounce(collision_info.normal)

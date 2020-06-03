@@ -1,7 +1,7 @@
 extends Node2D
 
 const winningScore = 7
-const ballSpeed = 200
+const ballSpeed = 250
 const ballScene = preload("res://ball.tscn")
 
 var _leftScore = 0
