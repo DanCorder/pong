@@ -3,7 +3,7 @@
 [ext_resource path="res://sideWall.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 288 )
+extents = Vector2( 260, 288 )
 
 [node name="SideWall" type="Area2D"]
 script = ExtResource( 1 )
