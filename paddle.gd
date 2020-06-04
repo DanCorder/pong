@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const paddle_height = 80
+const bounce_speed_up = 1.03
 
 var speed = 300
 var velocity = Vector2()
@@ -22,10 +23,10 @@ func get_input():
 
 # Allow the player to aim shots by adjusting bounce angle based on where
 # on the paddle the ball bounces
-func custom_bounce_direction(collision_info):
+func custom_bounce(collision_info, speed):
 	var newVx = 1 if collision_info.normal.x > 0 else -1
 	var newVy = (collision_info.position.y - collision_info.collider.position.y) / paddle_height
-	return Vector2(newVx, newVy).normalized()
+	return Vector2(newVx, newVy).normalized() * speed * bounce_speed_up
 
 func _physics_process(delta):
 	get_input()
