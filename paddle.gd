@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const paddle_height = 80
-const bounce_speed_up = 1.03
+const bounce_speed_up = 1.05
 
 var speed = 600
 var velocity = Vector2()
