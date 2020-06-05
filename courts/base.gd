@@ -26,15 +26,18 @@ func new_point() -> void:
 		get_tree().change_scene('res://winScreen.tscn')
 	
 	var ball = ballScene.instance()
+	var initalVelocity = get_serve_direction().normalized() * ballSpeed
+	ball.init(initalVelocity)
+	ball.position = Vector2(512, 300)
+	_ball = ball
+	add_child(ball)
+
+
+func get_serve_direction() -> Vector2:
 	var vx = rand_range(1, 2)
 	var vy = rand_range(0, 0.5)
 	var direction = rand_range(-1, 1)
-	var initalVelocity = Vector2(vx, vy) * direction
-	initalVelocity = initalVelocity.normalized() * ballSpeed
-	ball.init(initalVelocity)
-	ball.position = Vector2(512, 300)
-	add_child(ball)
-	_ball = ball
+	return Vector2(vx, vy) * direction
 
 
 func _on_leftWall_side_wall_hit() -> void:
