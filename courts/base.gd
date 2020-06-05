@@ -23,7 +23,7 @@ func new_point() -> void:
 	
 	if (_leftScore >= winningScore || _rightScore >= winningScore):
 		Global.winner = 'Left' if _leftScore >= winningScore else 'Right'
-		get_tree().change_scene('res://winScreen.tscn')
+		var _dummy = get_tree().change_scene('res://winScreen.tscn')
 	
 	var ball = ballScene.instance()
 	var initalVelocity = get_serve_direction().normalized() * ballSpeed
