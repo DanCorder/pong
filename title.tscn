@@ -27,10 +27,13 @@ __meta__ = {
 margin_top = 400.0
 margin_right = 1024.0
 margin_bottom = 600.0
-text = "Press Enter to begin
-First to 7 points wins
+text = "First to 7 points wins
 Use 'w' and 's' for left player
-Use up and down arrows for right player"
+Use up and down arrows for right player
+
+1) Standard
+2) Compass
+3) Pachinko"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
