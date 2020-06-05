@@ -36,7 +36,7 @@ func new_point() -> void:
 func get_serve_direction() -> Vector2:
 	var vx = rand_range(1, 2)
 	var vy = rand_range(0.1, 0.5)
-	var direction = rand_range(-1, 1)
+	var direction = 1 if rand_range(0, 1) > 0.5 else -1
 	return Vector2(vx, vy) * direction
 
 
